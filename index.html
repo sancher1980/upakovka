@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Упаковка Кимры — завернём, не дорого!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--yellow:#ffdd00;--red:#e60000;--dark:#0c0c0c;--card:#181818}
+    body{font-family:'Montserrat',system-ui,Arial,sans-serif;background:var(--dark);color:#fff;overflow-x:hidden}
+    h1,h2,h3,.display{font-family:'Russo One','Arial Black',Arial,sans-serif;font-weight:400;text-transform:uppercase}
+    a{color:inherit;text-decoration:none}
+
+    .ticker{overflow:hidden;background:var(--yellow);color:#000;border-bottom:3px solid #000;white-space:nowrap}
+    .ticker .track{display:inline-block;padding:10px 0;animation:scroll 22s linear infinite}
+    .ticker span{font-family:'Russo One','Arial Black',Arial,sans-serif;font-size:20px;letter-spacing:1px;padding:0 12px}
+    .ticker span b{color:var(--red)}
+    .ticker .dot{color:#000}
+    @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;border-bottom:1px solid #222;flex-wrap:wrap}
+    .brand{font-family:'Russo One','Arial Black',Arial,sans-serif;font-size:22px;text-transform:uppercase}
+    .brand b{color:var(--yellow)}
+    .nav .phone{font-weight:900;font-size:18px}
+    .nav .phone span{color:var(--yellow)}
+    .nav .nav-phones{display:flex;flex-direction:column;gap:2px;text-align:right}
+    .nav .nav-phones a{font-weight:900;font-size:14px;line-height:1.4}
+    .nav .nav-phones span{color:var(--yellow)}
+
+    .hero{padding:54px 20px 70px;text-align:center;position:relative;overflow:hidden;
+      background:radial-gradient(ellipse at 50% 0%,#2a2a2a 0%,var(--dark) 70%)}
+    .hero .burst{position:absolute;inset:0;pointer-events:none;opacity:.14;background:
+      radial-gradient(circle at 20% 20%,var(--yellow) 0,transparent 22%),
+      radial-gradient(circle at 80% 15%,var(--red) 0,transparent 20%),
+      radial-gradient(circle at 70% 85%,var(--yellow) 0,transparent 22%),
+      radial-gradient(circle at 12% 75%,var(--red) 0,transparent 18%)}
+    .hero .inner{position:relative;z-index:1;max-width:920px;margin:0 auto}
+    .hero h1{font-size:clamp(34px,9vw,86px);line-height:1;text-shadow:4px 4px 0 rgba(0,0,0,.3)}
+    .hero h1 .yellow{color:var(--yellow)}
+    .hero h1 .red{color:var(--red)}
+    .hero .sub{max-width:620px;margin:26px auto 0;font-size:18px;line-height:1.6;font-weight:700}
+    .hero .sub b{color:var(--yellow)}
+
+    .illu{margin:38px auto 0;max-width:600px}
+    .illu svg{width:100%;height:auto;display:block}
+
+    .badges{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:34px}
+    .badge{background:var(--yellow);color:#000;font-family:'Russo One','Arial Black',Arial,sans-serif;font-size:17px;padding:10px 20px;box-shadow:5px 5px 0 var(--red);transform:rotate(-2deg)}
+    .badge.red{background:var(--red);color:#fff;box-shadow:5px 5px 0 var(--yellow);transform:rotate(2deg)}
+    .badge small{display:block;font-family:'Montserrat',Arial,sans-serif;font-weight:700;font-size:11px}
+    .button-row{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:34px}
+    .btn{display:inline-flex;align-items:center;gap:10px;font-family:'Russo One','Arial Black',Arial,sans-serif;font-size:20px;padding:16px 34px;border-radius:10px;transition:transform .12s}
+    .btn:hover{transform:translateY(-3px)}
+    .btn-call{background:var(--red);color:#fff;box-shadow:0 6px 0 #a30000}
+    .btn-wa{background:#25d366;color:#fff;box-shadow:0 6px 0 #128c46}
+    .hero .note{margin-top:20px;font-size:13px;color:#999}
+
+    section{padding:70px 20px;max-width:900px;margin:0 auto}
+    .section-title{text-align:center;margin-bottom:12px}
+    .section-title .kicker{display:inline-block;font-weight:900;font-size:12px;letter-spacing:2px;color:var(--yellow);border:2px solid var(--yellow);padding:4px 12px;border-radius:20px;margin-bottom:16px}
+    .section-title h2{font-size:clamp(26px,5vw,44px);line-height:1.05}
+    .section-title h2 b{color:var(--yellow)}
+
+    .vert-list{display:flex;flex-direction:column;gap:14px;margin-top:36px}
+    .vert-line{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:16px 20px;background:var(--card);border-left:5px solid var(--yellow);border-radius:6px;transition:transform .15s,background .2s}
+    .vert-line:hover{transform:translateX(6px);background:#232323}
+    .vert-line .what{font-size:16px;color:#bbb}
+    .vert-line .do{font-family:'Russo One','Arial Black',Arial,sans-serif;font-size:clamp(16px,3vw,22px);color:#fff;white-space:nowrap}
+    .vert-line .do b{color:var(--red)}
+    .vert-line .do .y{color:var(--yellow)}
+    .vert-line:nth-child(even){border-left-color:var(--red)}
+
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;margin-top:36px}
+    .card{background:var(--card);border:2px solid #2a2a2a;border-radius:14px;padding:26px 20px;text-align:center;transition:border-color .2s,transform .2s}
+    .card:hover{border-color:var(--yellow);transform:translateY(-4px)}
+    .card .em{font-size:46px;margin-bottom:10px}
+    .card h3{font-size:20px;color:var(--yellow);margin-bottom:10px}
+    .card p{font-size:14px;line-height:1.55;color:#aaa}
+
+    .why-item{display:flex;gap:16px;align-items:flex-start;background:var(--card);border-radius:12px;padding:20px 22px;margin-bottom:14px}
+    .why-item .n{flex:0 0 auto;width:40px;height:40px;background:var(--yellow);color:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Russo One','Arial Black',Arial,sans-serif;font-size:20px;transform:rotate(-6deg)}
+    .why-item:nth-child(even) .n{background:var(--red);color:#fff;transform:rotate(6deg)}
+    .why-item p{font-size:16px;line-height:1.6;color:#ccc}
+    .why-item p b{color:#fff}
+
+    .outro{background:linear-gradient(135deg,var(--red),#8a0000);text-align:center;padding:66px 20px;margin-top:10px}
+    .outro h2{font-size:clamp(28px,6vw,50px);color:#fff;margin-bottom:14px;text-shadow:3px 3px 0 rgba(0,0,0,.25)}
+    .outro p{font-size:17px;color:rgba(255,255,255,.85);margin-bottom:28px}
+    .outro .phone-big{display:inline-block;font-family:'Russo One','Arial Black',Arial,sans-serif;font-size:clamp(24px,5vw,38px);color:#000;background:var(--yellow);padding:14px 30px;border-radius:12px;box-shadow:6px 6px 0 #000}
+
+    .pack-wrap{text-align:center;padding:0 20px 40px}
+    .pack-btn{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#ffdd00;border:2px dashed #555;padding:12px 22px;font:700 14px 'Montserrat',Arial;border-radius:8px;cursor:pointer;transition:.2s}
+    .pack-btn:hover{border-color:#ffdd00;color:#fff}
+
+    .overlay{position:fixed;inset:0;background:rgba(10,10,10,.97);z-index:99;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s}
+    .overlay.active{opacity:1;pointer-events:auto}
+    .box-wrp{background:#8b4513;padding:42px;border-radius:16px;text-align:center;position:relative;box-shadow:0 0 0 6px #d4a373,0 0 0 12px #8b4513,0 0 50px rgba(0,0,0,.6);animation:boxIn .6s ease-out}
+    .box-wrp .tape{position:absolute;left:50%;top:-16px;transform:translateX(-50%);width:120px;height:18px;background:rgba(255,255,255,.25)}
+    .box-wrp .tape.b{top:auto;bottom:-16px}
+    .box-wrp h3{font-size:26px;color:#fff;margin-bottom:12px}
+    .box-wrp p{color:#eee;margin-bottom:20px;line-height:1.6}
+    .box-wrp .close{background:var(--yellow);color:#000;border:0;padding:12px 30px;font:900 16px 'Montserrat',Arial;border-radius:8px;cursor:pointer}
+    @keyframes boxIn{from{transform:scale(.3);opacity:0}to{transform:scale(1);opacity:1}}
+
+    footer{padding:28px;text-align:center;font-size:12px;color:#555;line-height:1.7}
+  </style>
+</head>
+<body>
+
+<div class="ticker" aria-hidden="true">
+  <div class="track">
+    <span>ВСЁ, ЧТО ЗАВОРАЧИВАЕТСЯ — <b>ЗАВЕРНЁМ</b></span><span class="dot">•</span>
+    <span>ВСЁ, ЧТО УПАКОВЫВАЕТСЯ — <b>УПАКУЕМ</b></span><span class="dot">•</span>
+    <span>ВСЁ, ЧТО ОБОРАЧИВАЕТСЯ — <b>ОБЕРНЁМ</b></span><span class="dot">•</span>
+    <span>ВСЁ, ЧТО ЗАМАТЫВАЕТСЯ — <b>СКОТЧЕМ</b></span><span class="dot">•</span>
+    <span>ВСЁ, ЧТО ЗАВОРАЧИВАЕТСЯ — <b>ЗАВЕРНЁМ</b></span><span class="dot">•</span>
+    <span>ВСЁ, ЧТО УПАКОВЫВАЕТСЯ — <b>УПАКУЕМ</b></span><span class="dot">•</span>
+    <span>ВСЁ, ЧТО ОБОРАЧИВАЕТСЯ — <b>ОБЕРНЁМ</b></span><span class="dot">•</span>
+    <span>ВСЁ, ЧТО ЗАМАТЫВАЕТСЯ — <b>СКОТЧЕМ</b></span><span class="dot">•</span>
+  </div>
+</div>
+
+<div class="nav">
+  <div class="brand">УПАКОВКА <b>КИМРЫ</b></div>
+  <div class="nav-phones">
+    <a href="tel:+79056052822"><span>+7 905 605‑28‑22</span></a>
+    <a href="tel:+79109389271"><span>+7 910 938‑92‑71</span></a>
+    <a href="tel:+79961369673"><span>+7 996 136‑96‑73</span></a>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="burst"></div>
+  <div class="inner">
+    <h1>
+      <span class="yellow">ЗАВЕРНЁМ —</span><br>
+      <span class="red">НЕ&nbsp;ДОРОГО</span>
+    </h1>
+    <p class="sub">Всё, что заворачивается, упаковывается или просто мешается — <b>завернём быстро и&nbsp;не&nbsp;за&nbsp;дорого</b>. Плёнкой, скотчем и&nbsp;совестью.</p>
+
+    <!-- иллюстрация -->
+    <div class="illu">
+      <svg viewBox="0 0 640 400" role="img" aria-label="Жёлтый персонаж-смайлик, обмотанный стрейч-плёнкой, торчит испуганная голова">
+        <defs>
+          <linearGradient id="rollGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#9b9b9b"/><stop offset=".5" stop-color="#e6e6e6"/><stop offset="1" stop-color="#9b9b9b"/>
+          </linearGradient>
+          <clipPath id="mum">
+            <path d="M340 160 C318 160 304 178 304 202 C304 252 314 300 324 340 C330 354 350 354 356 340 C366 300 376 252 376 202 C376 178 362 160 340 160 Z"/>
+          </clipPath>
+        </defs>
+
+        <!-- тень -->
+        <ellipse cx="340" cy="378" rx="250" ry="20" fill="#000" opacity=".32"/>
+
+        <!-- рулон стрейч-плёнки -->
+        <rect x="54" y="260" width="86" height="102" rx="8" fill="url(#rollGrad)"/>
+        <ellipse cx="97" cy="260" rx="43" ry="16" fill="#f7f7f7"/>
+        <ellipse cx="97" cy="260" rx="25" ry="9" fill="#8a8a8a"/>
+        <rect x="66" y="302" width="62" height="40" rx="4" fill="#ffdd00"/>
+        <rect x="76" y="314" width="42" height="5" rx="2.5" fill="#111"/>
+        <rect x="76" y="325" width="30" height="5" rx="2.5" fill="#111"/>
+
+        <!-- плёнка от рулона к персонажу -->
+        <path d="M138 270 C 188 234, 242 248, 284 264" fill="none" stroke="#ffffff" stroke-width="13" opacity=".55"/>
+        <path d="M138 270 C 188 234, 242 248, 284 264" fill="none" stroke="#ffffff" stroke-width="4" opacity=".9"/>
+
+        <!-- замотанное тело -->
+        <g clip-path="url(#mum)">
+          <rect x="298" y="156" width="84" height="204" fill="#ffd400"/>
+          <g stroke="#ffffff" stroke-width="11" opacity=".5" stroke-linecap="round">
+            <path d="M288 196 L392 300"/>
+            <path d="M288 238 L392 342"/>
+            <path d="M290 178 L390 178"/>
+            <path d="M288 280 L392 384"/>
+            <path d="M298 162 L362 352"/>
+          </g>
+          <g stroke="#ffffff" stroke-width="2.5" opacity=".95" fill="none" stroke-linecap="round">
+            <path d="M294 204 L372 308"/>
+            <path d="M328 158 L340 352"/>
+            <path d="M314 160 L326 352"/>
+          </g>
+        </g>
+        <path d="M340 160 C318 160 304 178 304 202 C304 252 314 300 324 340 C330 354 350 354 356 340 C366 300 376 252 376 202 C376 178 362 160 340 160 Z" fill="none" stroke="#1a1a1a" stroke-width="2.5"/>
+
+        <!-- шея -->
+        <rect x="324" y="136" width="32" height="28" rx="10" fill="#ffdd00" stroke="#1a1a1a" stroke-width="2"/>
+
+        <!-- голова -->
+        <circle cx="340" cy="88" r="52" fill="#ffdd00" stroke="#1a1a1a" stroke-width="3"/>
+        <path d="M306 64 Q322 55 338 64" stroke="#1a1a1a" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M342 64 Q358 55 374 64" stroke="#1a1a1a" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <circle cx="322" cy="88" r="9" fill="#1a1a1a"/>
+        <circle cx="358" cy="88" r="9" fill="#1a1a1a"/>
+        <circle cx="325" cy="85" r="3" fill="#fff"/>
+        <circle cx="361" cy="85" r="3" fill="#fff"/>
+        <ellipse cx="340" cy="122" rx="11" ry="14" fill="#1a1a1a"/>
+        <ellipse cx="340" cy="131" rx="6" ry="4" fill="#e60000"/>
+        <path d="M402 58 q11 12 1 22 q-11 -10 1 -22" fill="#4fc3f7" stroke="#0288d1" stroke-width="1.5"/>
+
+        <!-- ступни -->
+        <ellipse cx="312" cy="364" rx="24" ry="13" fill="#ffdd00" stroke="#1a1a1a" stroke-width="2.5"/>
+        <ellipse cx="368" cy="364" rx="24" ry="13" fill="#ffdd00" stroke="#1a1a1a" stroke-width="2.5"/>
+        <g fill="#1a1a1a">
+          <circle cx="301" cy="372" r="2.5"/><circle cx="312" cy="375" r="2.7"/><circle cx="323" cy="372" r="2.5"/>
+          <circle cx="357" cy="372" r="2.5"/><circle cx="368" cy="375" r="2.7"/><circle cx="379" cy="372" r="2.5"/>
+        </g>
+
+        <!-- искры юмора -->
+        <g fill="#ffdd00">
+          <path d="M252 82 l6 18 18 6 -18 6 -6 18 -6 -18 -18 -6 18 -6 Z"/>
+          <path d="M420 70 l6 18 18 6 -18 6 -6 18 -6 -18 -18 -6 18 -6 Z"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="badges">
+      <div class="badge">ЦЕНЫ — ДЕШЕВЛЕ ТОЛЬКО ДАРОМ<small>но даром мы не работаем, мы же не святые</small></div>
+      <div class="badge red">ОПТОМ И В&nbsp;РОЗНИЦУ<small>выгодно и оптом, и поштучно — всем рады</small></div>
+    </div>
+    <div class="button-row">
+      <a class="btn btn-call" href="tel:+79056052822">📞 +7 905 605‑28‑22</a>
+      <a class="btn btn-call" href="tel:+79109389271">📞 +7 910 938‑92‑71</a>
+      <a class="btn btn-call" href="tel:+79961369673">📞 +7 996 136‑96‑73</a>
+      <a class="btn btn-wa" href="https://wa.me/79056052822" target="_blank" rel="noopener">💬 WhatsApp</a>
+    </div>
+    <p class="note">Звоните — обернём в лучшем виде. В прямом и переносном смысле.</p>
+  </div>
+</header>
+
+<section>
+  <div class="section-title">
+    <span class="kicker">НАШ МАНИФЕСТ</span>
+    <h2>ЧТО ДЕЛАЕМ <b>С ВЕЩАМИ</b></h2>
+  </div>
+  <div class="vert-list">
+    <div class="vert-line"><span class="what">Всё, что заворачивается</span><span class="do"><b>завернём</b></span></div>
+    <div class="vert-line"><span class="what">Всё, что упаковывается</span><span class="do"><b>упакуем</b></span></div>
+    <div class="vert-line"><span class="what">Всё, что оборачивается</span><span class="do"><b>обернём</b></span></div>
+    <div class="vert-line"><span class="what">Всё, что заматывается</span><span class="do"><b>скотчем</b></span></div>
+    <div class="vert-line"><span class="what">Всё, что рассыпается</span><span class="do"><span class="y">соберём и всё равно завернём</span></span></div>
+    <div class="vert-line"><span class="what">Всё, что не помещается</span><span class="do"><b>поместим</b></span></div>
+    <div class="vert-line"><span class="what">Всё, что дорого сердцу</span><span class="do"><span class="y">в пупырку и в коробку</span></span></div>
+    <div class="vert-line"><span class="what">Всё, что дорого жене</span><span class="do"><b>в два слоя</b></span></div>
+  </div>
+</section>
+
+<section>
+  <div class="section-title">
+    <span class="kicker">АССОРТИМЕНТ</span>
+    <h2>ЧЕМ <b>УПАКУЕМ</b></h2>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="em">🍽️</div>
+      <h3>Одноразовая посуда</h3>
+      <p>Потому что мыть посуду — удел тех, у кого мало друзей. Пришёл, поел, выбросил, ушёл.</p>
+    </div>
+    <div class="card">
+      <div class="em">🛍️</div>
+      <h3>Пакеты</h3>
+      <p>Крепче, чем обещания бывших. Донесут до дома всё, включая правду.</p>
+    </div>
+    <div class="card">
+      <div class="em">📦</div>
+      <h3>Контейнеры</h3>
+      <p>Переживут и вашу диету, и чужие ожидания. Герметично. Как ваши секреты.</p>
+    </div>
+    <div class="card">
+      <div class="em">🍱</div>
+      <h3>Ланч-боксы</h3>
+      <p>Для тех, у кого есть обед и нет времени на ерунду. Еда без компромиссов.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-title">
+    <span class="kicker">АРГУМЕНТЫ</span>
+    <h2>ПОЧЕМУ <b>МЫ</b></h2>
+  </div>
+  <div class="why-item"><div class="n">1</div><p><b>Оптом дешевле.</b> В розницу — с душой, тем и другим одинаково рады.</p></div>
+  <div class="why-item"><div class="n">2</div><p><b>Подберём под любой повод:</b> от тихого ужина до корпоратива, после которого всех надо «упаковать» в такси.</p></div>
+  <div class="why-item"><div class="n">3</div><p><b>Не знаете, чем упаковать?</b> Мы знаем. Опыта больше, чем у почты России за год.</p></div>
+  <div class="why-item"><div class="n">4</div><p><b>Примем даже то,</b> что «само не заворачивается». И то, что вы «только глянуть» занесли.</p></div>
+</section>
+
+<section class="outro">
+  <h2>ХВАТИТ ДУМАТЬ — ПОРА ЗАВОРАЧИВАТЬ</h2>
+  <p>Звоните прямо сейчас. Или пишите — мы на связи.</p>
+  <a class="phone-big" href="tel:+79056052822">📞 +7 905 605‑28‑22</a>
+  <br><br>
+  <a class="phone-big" href="tel:+79109389271">📞 +7 910 938‑92‑71</a>
+  <br><br>
+  <a class="phone-big" href="tel:+79961369673">📞 +7 996 136‑96‑73</a>
+  <br><br>
+  <a class="btn btn-wa" href="https://wa.me/79056052822" target="_blank" rel="noopener">💬 Написать в WhatsApp</a>
+</section>
+
+<footer>
+  © Упаковка Кимры · upakovka-kimry.ru<br>
+  Упакуем кого хошь и во что хошь — с душой и скотчем.<br>
+  Кимры, Тверская область<br>
+  📞 +7 905 605‑28‑22 · +7 910 938‑92‑71 · +7 996 136‑96‑73
+</footer>
+
+</body>
+</html>
